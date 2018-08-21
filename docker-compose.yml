@@ -1,0 +1,29 @@
+craft:
+  image: "php:7.0-apache"
+  links:
+    - "mysql:mysql"
+
+  volumes:
+    - "./site:/var/www"
+    - "./scripts:/scripts"
+
+  environment:
+    - CRAFT_DEVMODE=true
+
+  ports:        
+    - 8080:80
+
+mysql:
+  image: "mariadb:10.1"
+  volumes_from:
+    - "mysql_data"
+  environment:
+    - MYSQL_DATABASE=craft
+    - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
+
+mysql_data:
+  image: "debian:jessie"
+  volumes:
+    - /var/lib/mysql
+
