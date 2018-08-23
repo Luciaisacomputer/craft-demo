@@ -11,19 +11,19 @@
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
-<head>
-	<meta charset="utf-8" />
-	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
-	<link rel="home" href="{{ siteUrl }}" />
+	<head>
+		<meta charset="utf-8" />
+		<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+		<link rel="home" href="{{ siteUrl }}" />
+		<link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i|Open+Sans:400,700" rel="stylesheet">
+		{% includeCssFile "/public/styles.css" %}
 
-	{% includeCssFile "/public/styles.css" %}
-
-</head>
+	</head>
 	<body>
 		<div id="container">
 			<header class="tc-header">
 				<div class="tc-container" data-reactid="4">
-					<a class="tc-logo" href="/" data-reactid="5"><a href="{{ siteUrl }}">{{ siteName }}</a></a>
+					<a class="tc-logo" href="/" data-reactid="5"></a>
 					<nav class="tc-navigation" data-reactid="6">
 						<ul class="tc-navigation-list" data-reactid="7">
 							<li data-reactid="8">
