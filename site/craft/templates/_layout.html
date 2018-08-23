@@ -16,39 +16,39 @@
 		<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
 		<link rel="home" href="{{ siteUrl }}" />
 		<link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i|Open+Sans:400,700" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css">
 		{% includeCssFile "/public/styles.css" %}
+
 
 	</head>
 	<body>
 		<div id="container">
+
+				{% set sections = craft.sections.getAllSections() %}
+
 			<header class="tc-header">
-				<div class="tc-container" data-reactid="4">
-					<a class="tc-logo" href="/" data-reactid="5"></a>
-					<nav class="tc-navigation" data-reactid="6">
-						<ul class="tc-navigation-list" data-reactid="7">
-							<li data-reactid="8">
-								<a class="tc-navigation-link" href="/" data-reactid="9">
-									<i class="fas fa-home" data-reactid="10"></i>
-									<span class="tc-navigation-link-text" data-reactid="11">Home</span>
-								</a>
-							</li>
-							<li data-reactid="12">
-								<a class="tc-navigation-link" href="/" data-reactid="13">
-									<i class="fas fa-tag" data-reactid="14"></i>
-									<span class="tc-navigation-link-text" data-reactid="15">Categories</span>
-								</a>
-							</li>
+				<div class="tc-container">
+					<a class="tc-logo" href="/"></a>
+					<nav class="tc-navigation">
+						<ul class="tc-navigation-list">
+							{% for section in sections %}
 							<li>
-								<a class="tc-navigation-link" href="{{ url('news') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>News</a>
-							</li>					
+								<a class="tc-navigation-link" href="{{ url(section) }}">
+								{{section}}
+								</a>
+							</li>
+							{% endfor %}
 							<li data-reactid="16">
-								<div class="tc-search " data-reactid="17">
-									<button class="tc-search-button" type="button" data-reactid="18">
-										<i class="fas fa-search" data-reactid="19"></i>
-										<span class="tc-navigation-link-text" data-reactid="20">Search</span>
+								<div class="tc-search">
+									<button class="tc-search-button" type="button">
+										<i class="fas fa-search"></i>
+										<span class="tc-navigation-link-text">Search</span>
 									</button>
-									<form class="tc-search-form" data-reactid="21">
-										<input type="text" class="tc-search-button-input" placeholder="Search" value="" data-reactid="22"/>
+
+
+									<form class="tc-search-form" action="{{ url('search/results') }}">
+										<input type="search" name="q" class="tc-search-button-input" placeholder="Search" value="" />
 									</form>
 								</div>
 							</li>
@@ -79,10 +79,10 @@
 						<aside class="tc-announcements">
 							<h3 class="tc-announcements-title">Upcoming events</h3>
 							<ul>
-									{% for entry in craft.entries.section('event').limit(5).find() %}
-										<li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-									{% endfor %}
-								</ul>
+								{% for entry in craft.entries.section('event').limit(5).find() %}
+									<li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+								{% endfor %}
+							</ul>
 						</aside>
 					</div>
 				</div>
