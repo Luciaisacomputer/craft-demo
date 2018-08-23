@@ -19,15 +19,17 @@
 
 {% extends "_layout" %}
 
-{% block content %}
-	<h1>{{ entry.title }}</h1>
-
-	{{ entry.body }}
-
-	<h2>Recent News</h2>
-	<ul>
-		{% for entry in craft.entries.section('news').limit(5).find() %}
-			<li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-		{% endfor %}
-	</ul>
+{% block content %}	
+	{% for entry in craft.entries.section('news').limit(5).find() %}
+		<article class="tc-post">
+			<a class="tc-post-link" href="{{ entry.url }}">{{ entry.title }}</a>
+			<cite class="tc-post-author">
+				by {{ entry.author }}  on {{ entry.postDate | date("M d, Y") }}
+			</cite>
+			<p class="tc-post-body">
+				TO DO Limit this by x chars
+				<a class="tc-post-link--more" href="{{ entry.url }}">Read more</a>
+			</p>
+		</article>
+	{% endfor %}
 {% endblock %}
