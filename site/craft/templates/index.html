@@ -27,7 +27,7 @@
 				by {{ entry.author }}  on {{ entry.postDate | date("M d, Y") }}
 			</cite>
 			<p class="tc-post-body">
-				TO DO Limit this by x chars
+				{{ entry.body | trimit(100) }}
 				<a class="tc-post-link--more" href="{{ entry.url }}">Read more</a>
 			</p>
 		</article>
