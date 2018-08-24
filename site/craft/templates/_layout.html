@@ -13,25 +13,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 	<head>
 		<meta charset="utf-8" />
-
-		<link rel="preload" href="/public/component---src-layouts-index-js-4fa1d5c5632ef0c48fc3.js" as="script" />
-		<link rel="preload" href="/public/component---src-pages-index-js-8c36633c63eaaaa04444.js" as="script" />
-		<link rel="preload" href="/public/path---index-2395de6dc4a95f8d567e.js" as="script" />
-		<link rel="preload" href="/public/app-16b151f0bb8c03d7f8da.js" as="script" />
-		<link rel="preload" href="/public/commons-fcbb8af1639fee4f6844.js" as="script" />
-
 		<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+
 		<link rel="home" href="{{ siteUrl }}" />
 		<link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i|Open+Sans:400,700" rel="stylesheet">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css">
+
 		{% includeCssFile "/public/styles.css" %}
-
-
 
 	</head>
 	<body>
-		<div id="___gatsby">
+		<div id="craftmain">
 
 				{% set sections = craft.sections.getAllSections() %}
 
@@ -91,9 +84,9 @@
 									<li>
 										
 										<h4 class="tc-event-title">{{ entry.title }}</h4>
-										<time class="tc-event-date"></time>
-										<span class="tc-event-location"></span>
-										<span class="tc-event-location"></span>
+										<time class="tc-event-date">{{ entry.date | date('F j, Y  h:i a') }} </time>
+										<span class="tc-event-location">{{ entry.locationName }}</span>
+										<span class="tc-event-location">{{ entry.address }}</span>
 									</li>
 								{% endfor %}
 							</ul>
@@ -109,8 +102,5 @@
 			</footer>
 		</div>
 
-		<script id="webpack-manifest">/*<![CDATA[*/window.webpackManifest = { "231608221292675": "/public/app-16b151f0bb8c03d7f8da.js", "99219681209289": "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js", "107818501498521": "../public/component---src-templates-blog-post-js-139a8d8b2712697d44ad.js", "35783957827783": "../public/component---src-pages-index-js-8c36633c63eaaaa04444.js", "60335399758886": "/public/path----be074114837c039480fd.js", "210333531512890": "../public/path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js", "257760668636953": "../public/path---progressive-web-applications-1c38c36cf81d01c82a96.js", "104905274354646": "path---the-last-mile-in-website-security-usability-ea8012f387ff37b7e822.js", "172556084517493": "path---data-visualization-and-identifying-the-true-challenge-within-the-question-004068e2d7c38e358000.js", "142629428675168": "../public/path---index-2395de6dc4a95f8d567e.js", "114276838955818": "../public/component---src-layouts-index-js-4fa1d5c5632ef0c48fc3.js" }/*]]>*/</script>
-		<script>/*<![CDATA[*/["/public/commons-fcbb8af1639fee4f6844.js", "/public/app-16b151f0bb8c03d7f8da.js", "/public/path---index-2395de6dc4a95f8d567e.js", "../public/component---src-pages-index-js-8c36633c63eaaaa04444.js", "/public/component---src-layouts-index-js-4fa1d5c5632ef0c48fc3.js"].forEach(function (s) { document.write('<script src="' + s + '" defer></' + 'script>') })/*]]>*/</script>
-	
 	</body>
 </html>
