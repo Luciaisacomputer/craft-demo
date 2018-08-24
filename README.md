@@ -13,4 +13,4 @@
 1. Install the dependencies listed above
 1. Run `craftman admin` to open the admin portion of the site
 1. Run `craftman open` to allow access to the frontend of the site
-1. Clone the database (I haven't done this step yet, still need to figure out)
+1. Run `craftman mysql:restore <file> ` where file is the DB zip name
