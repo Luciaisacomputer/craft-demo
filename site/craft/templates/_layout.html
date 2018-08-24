@@ -35,7 +35,7 @@
 						<ul class="tc-navigation-list">
 							{% for section in sections %}
 							<li>
-								<a class="tc-navigation-link" href="{{ url(section) }}">
+								<a class="tc-navigation-link" href="{{ url(section | lower) }}">
 								{{section}}
 								</a>
 							</li>
@@ -101,6 +101,13 @@
 				<p class="tc-copyright">&copy; {{ now.year }} Think Company, Inc. All rights reserved.</p>
 			</footer>
 		</div>
+
+
+		
+		{% block javascript_footer %}
+			<script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js') }}"></script>
+			<script src="{{ url('../public/main.js') }}"></script>
+		{% endblock %}  
 
 	</body>
 </html>
