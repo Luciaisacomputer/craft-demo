@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["/app-16b151f0bb8c03d7f8da.js","cea44652f2731fe891a476a4c9758397"],["/commons-fcbb8af1639fee4f6844.js","1c43e121c13b3f0503bf51215f1afa10"],["/index.html","615229c3e422e9a5373174b6818e8f77"],["/offline-plugin-app-shell-fallback/index.html","ae58cb4400fe035d3f561ce06f26f681"]];
+var precacheConfig = [["/app-16b151f0bb8c03d7f8da.js","cea44652f2731fe891a476a4c9758397"],["../public/commons-fcbb8af1639fee4f6844.js","1c43e121c13b3f0503bf51215f1afa10"],["/index.html","615229c3e422e9a5373174b6818e8f77"],["/offline-plugin-app-shell-fallback/index.html","ae58cb4400fe035d3f561ce06f26f681"]];
 var cacheName = 'sw-precache-v3-gatsby-plugin-offline-' + (self.registration ? self.registration.scope : '');
 
 
@@ -229,7 +229,7 @@ self.addEventListener('fetch', function(event) {
 
     // If shouldRespond is still false, check to see if this is a navigation
     // request, and if so, whether the URL matches navigateFallbackWhitelist.
-    var navigateFallback = '/offline-plugin-app-shell-fallback/index.html';
+    var navigateFallback = '../public/offline-plugin-app-shell-fallback/index.html';
     if (!shouldRespond &&
         navigateFallback &&
         (event.request.mode === 'navigate') &&
