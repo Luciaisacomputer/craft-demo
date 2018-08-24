@@ -1,7 +1,7 @@
 (function () {
     $(window).scroll(function () {
         var $nav = $('.tc-header');
-        var navFixedClass = ".tc-header--fixed";
+        var navFixedClass = "tc-header--fixed";
 
         
         if ($(window).scrollTop() > 100){
